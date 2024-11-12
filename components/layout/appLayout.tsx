@@ -9,6 +9,7 @@ import { leftDrawerWidth, rightDrawerWidth } from "@/constants/widths";
 import AppBar from "../ui/appbar";
 import LeftDrawer from "./leftDrawer";
 import RightDrawer from "./rightDrawer";
+import MainWrapper from "./main";
 
 export default function AppLayout() {
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(true);
@@ -24,7 +25,8 @@ export default function AppLayout() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <div className="w-full h-screen flex justify-between">
+      <LeftDrawer isLeftDrawerOpen={isLeftDrawerOpen} />
       <AppBar
         position="fixed"
         leftDrawerOpen={isLeftDrawerOpen}
@@ -35,9 +37,8 @@ export default function AppLayout() {
           setRightDrawerStatus={setRightDrawerStatus}
         />
       </AppBar>
-      <LeftDrawer isLeftDrawerOpen={isLeftDrawerOpen} />
+      <MainWrapper />
       <RightDrawer isRightDrawerOpen={isRightDrawerOpen} />
-      {/* <MainWrapper leftDrawerOpen={leftDrawer} rightDrawerOpen={rightDrawer} /> */}
-    </Box>
+    </div>
   );
 }
