@@ -1,25 +1,23 @@
 import { rightDrawerWidth } from "@/constants/widths";
-import { Drawer } from "@mui/material";
-
+import DrawerWrapper from "../ui/drawer";
+import Notifications from "../sections/notifications";
+import Activities from "../sections/activites";
+import Users from "../sections/users";
 type Props = {
   isRightDrawerOpen: boolean;
 };
 
 const RightDrawer = ({ isRightDrawerOpen }: Props) => {
   return (
-    <Drawer
-      sx={{
-        width: rightDrawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: rightDrawerWidth,
-          boxSizing: "border-box",
-        },
-      }}
-      variant="persistent"
-      anchor="right"
+    <DrawerWrapper
+      width={rightDrawerWidth}
       open={isRightDrawerOpen}
-    ></Drawer>
+      alinement={"right"}
+    >
+      <Notifications />
+      <Activities />
+      <Users />
+    </DrawerWrapper>
   );
 };
 

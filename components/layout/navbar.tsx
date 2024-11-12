@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../ui/icon";
+import { Icon } from "../ui/icon";
 import Text from "../ui/text";
 import { IconButton } from "@mui/material";
 

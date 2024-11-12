@@ -35,7 +35,7 @@ export default function AppLayout() {
           setRightDrawerStatus={setRightDrawerStatus}
         />
       </AppBar>
-      <LeftDrawer leftDrawer={isLeftDrawerOpen} />
+      <LeftDrawer isLeftDrawerOpen={isLeftDrawerOpen} />
       <RightDrawer isRightDrawerOpen={isRightDrawerOpen} />
       {/* <MainWrapper leftDrawerOpen={leftDrawer} rightDrawerOpen={rightDrawer} /> */}
     </Box>
