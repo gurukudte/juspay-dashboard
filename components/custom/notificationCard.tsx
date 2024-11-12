@@ -21,12 +21,12 @@ const NotificationCard = ({ iconName, notification, timeStamp }: Props) => {
           className={
             "text-14-regular text-black-100 inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"
           }
-          padding="none"
+          padding="p-0"
         />
         <Text
           text={timeStamp}
           className={"text-12-regular text-black-40"}
-          padding="none"
+          padding="p-0"
         />
       </div>
     </div>

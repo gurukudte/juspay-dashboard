@@ -13,7 +13,7 @@ const AppBar = styled(MuiAppBar, {
 })<AppBarProps>(
   ({ theme, leftDrawerOpen = false, rightDrawerOpen = false }) => {
     // Set leftDrawerWidth based on leftDrawerOpen state
-    const defaultLeftDrawerWidth = leftDrawerOpen ? leftDrawerWidth : 0;
+    const leftDrawerWidthValue = leftDrawerOpen ? leftDrawerWidth : 0;
 
     return {
       background: "white",
@@ -21,9 +21,9 @@ const AppBar = styled(MuiAppBar, {
 
       // Apply conditional styles
       width: `calc(100% - ${
-        defaultLeftDrawerWidth + (rightDrawerOpen ? rightDrawerWidth : 0)
+        leftDrawerWidthValue + (rightDrawerOpen ? rightDrawerWidth : 0)
       }px)`,
-      marginLeft: leftDrawerOpen ? `${defaultLeftDrawerWidth}px` : 0,
+      marginLeft: leftDrawerOpen ? `${leftDrawerWidthValue}px` : 0,
       marginRight: rightDrawerOpen ? `${rightDrawerWidth}px` : 0,
       transition: theme.transitions.create(["margin", "width"], {
         easing: theme.transitions.easing.easeOut,

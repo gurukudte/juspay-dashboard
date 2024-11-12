@@ -24,6 +24,8 @@ module.exports = {
         "black-10": "rgba(0, 0, 0, 0.1)", // 10% black
         "black-5": "rgba(0, 0, 0, 0.05)", // 5% black
         "primary-blue": "rgba(227, 245, 255, 1)", // Primary blue color
+        "primary-light": "rgba(247, 249, 251, 1)", // Primary light color
+        "primary-purple": "rgba(229, 236, 246, 1)", // Primary puple color
       },
     },
   },

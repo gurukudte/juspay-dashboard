@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
   width: number;
   open: boolean;
-  alinement: "left" | "right";
+  alinement: "top" | "right" | "bottom" | "left" | undefined;
 };
 
 const DrawerWrapper = ({ children, width, open, alinement }: Props) => {

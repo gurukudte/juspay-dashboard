@@ -2,7 +2,7 @@ import { rightDrawerWidth } from "@/constants/widths";
 import DrawerWrapper from "../ui/drawer";
 import Notifications from "../sections/notifications";
 import Activities from "../sections/activites";
-import Users from "../sections/users";
+import Contacts from "../sections/contacts";
 type Props = {
   isRightDrawerOpen: boolean;
 };
@@ -16,7 +16,7 @@ const RightDrawer = ({ isRightDrawerOpen }: Props) => {
     >
       <Notifications />
       <Activities />
-      <Users />
+      <Contacts />
     </DrawerWrapper>
   );
 };
