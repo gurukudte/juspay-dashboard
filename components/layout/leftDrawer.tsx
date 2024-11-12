@@ -1,31 +1,19 @@
 import { leftDrawerWidth } from "@/constants/widths";
-import { Drawer } from "@mui/material";
 import React from "react";
-import Icon from "../ui/icon";
+import { Icon } from "../ui/icon";
 import Text from "../ui/text";
+import DrawerWrapper from "../ui/drawer";
 
 type Props = {
-  leftDrawer: boolean;
+  isLeftDrawerOpen: boolean;
 };
 
-const LeftDrawer = ({ leftDrawer }: Props) => {
+const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
   return (
-    <Drawer
-      sx={{
-        width: leftDrawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: leftDrawerWidth,
-          padding: "20px 16px",
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-        },
-      }}
-      variant="persistent"
-      anchor="left"
-      open={leftDrawer}
+    <DrawerWrapper
+      width={leftDrawerWidth}
+      open={isLeftDrawerOpen}
+      alinement={"left"}
     >
       <div className="flex gap-2 justify-left items-center">
         <Icon iconName={"ByeWind"} size={24} />
@@ -197,7 +185,7 @@ const LeftDrawer = ({ leftDrawer }: Props) => {
           </li>
         </ul>
       </div>
-    </Drawer>
+    </DrawerWrapper>
   );
 };
 

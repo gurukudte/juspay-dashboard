@@ -23,6 +23,7 @@ module.exports = {
         "black-20": "rgba(0, 0, 0, 0.2)", // 20% black
         "black-10": "rgba(0, 0, 0, 0.1)", // 10% black
         "black-5": "rgba(0, 0, 0, 0.05)", // 5% black
+        "primary-blue": "rgba(227, 245, 255, 1)", // Primary blue color
       },
     },
   },
