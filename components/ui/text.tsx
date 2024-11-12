@@ -3,12 +3,13 @@ import { Typography } from "@mui/material";
 type Props = {
   text: string;
   className: string;
+  padding?: string;
 };
 
-const Text = ({ text, className }: Props) => {
+const Text = ({ padding, text, className }: Props) => {
   return (
-    <div className="py-1 px-2">
-      <Typography component="h2" className={className}>
+    <div className={`${padding ? padding : "py-1 px-2"}`}>
+      <Typography component="h2" className={className} fontFamily={"inter"}>
         {text}
       </Typography>
     </div>
