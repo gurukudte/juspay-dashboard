@@ -68,6 +68,7 @@ const ProductTable = (props: Props) => {
                   className={`text-12-regular text-black-100 py-2 ${
                     index === 0 ? "pr-3" : "px-3"
                   } flex justify-start`}
+                  key={`${item.toString() + index}`}
                 >
                   {index === 1 || index === 3
                     ? "$" + item.toLocaleString()
