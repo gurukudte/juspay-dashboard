@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 import UserCard from "../custom/contactsCard";
 const contacts = [
   {
@@ -33,7 +33,7 @@ type Props = {};
 const Contacts = (props: Props) => {
   return (
     <div className="flex flex-col gap-2">
-      <Text
+      <TextBody
         text={"Contacts"}
         className={"text-14-semibold text-black-100"}
         padding="py-2 px-1"

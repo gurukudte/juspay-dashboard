@@ -1,6 +1,6 @@
 import React from "react";
 import { AvatarIcon } from "../ui/icon";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 
 type Props = {
   avatarName: string;
@@ -16,14 +16,14 @@ const ActivitiesCard = ({ avatarName, activity, timeStamp }: Props) => {
     >
       <AvatarIcon iconName={avatarName} />
       <div className="flex flex-col items-start">
-        <Text
+        <TextBody
           text={activity}
           className={
             "text-14-regular text-black-100 inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"
           }
           padding="none"
         />
-        <Text
+        <TextBody
           text={timeStamp}
           className={"text-12-regular text-black-40"}
           padding="none"

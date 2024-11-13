@@ -6,14 +6,14 @@ type Props = {
   padding?: string;
 };
 
-const Text = ({ padding, text, className }: Props) => {
+const TextBody = ({ padding, text, className }: Props) => {
   return (
     <div className={`${padding ? padding : "py-1 px-2"} flex`}>
-      <Typography component="h2" className={className} fontFamily={"inter"}>
+      <Typography variant="body1" className={className} fontFamily={"inter"}>
         {text}
       </Typography>
     </div>
   );
 };
 
-export default Text;
+export default TextBody;

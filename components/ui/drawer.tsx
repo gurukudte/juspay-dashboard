@@ -1,4 +1,4 @@
-import { leftDrawerWidth } from "@/constants/widths";
+import { useTheme } from "@mui/material/styles";
 import { Drawer } from "@mui/material";
 import { ReactNode } from "react";
 
@@ -10,10 +10,11 @@ type Props = {
 };
 
 const DrawerWrapper = ({ children, width, open, alinement }: Props) => {
+  const theme = useTheme();
   return (
     <Drawer
       sx={{
-        width: width,
+        width: open ? width : 0,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: width,
@@ -24,6 +25,8 @@ const DrawerWrapper = ({ children, width, open, alinement }: Props) => {
           gap: "16px",
           overflow: "hidden",
         },
+        transition: `margin 300ms cubic-bezier(0.4, 0, 0.2, 1), 
+                  width 300ms cubic-bezier(0.4, 0, 0.2, 1)`,
       }}
       variant="persistent"
       anchor={alinement}

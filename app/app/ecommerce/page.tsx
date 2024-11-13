@@ -1,15 +1,18 @@
-import MainWrapper from "@/components/layout/main";
-import Dashboard from "@/components/sections/dashboard";
-import Text from "@/components/ui/text";
+import MainWrapper from "@/components/ui/mainWrapper";
+import Dashboard from "@/app/app/ecommerce/dashboard";
+import TextBody from "@/components/ui/text";
 
 type Props = {};
 
 const page = (props: Props) => {
   return (
-    <MainWrapper>
-      <Text text={"eCommerce"} className={"text-14-semibold text-black-100"} />
+    <>
+      <TextBody
+        text={"eCommerce"}
+        className={"text-14-semibold text-black-100"}
+      />
       <Dashboard />
-    </MainWrapper>
+    </>
   );
 };
 

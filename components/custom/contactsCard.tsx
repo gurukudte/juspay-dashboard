@@ -1,6 +1,6 @@
 import React from "react";
 import { AvatarIcon } from "../ui/icon";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 
 type Props = {
   userIcon: string;
@@ -12,7 +12,7 @@ const UserCard = ({ userIcon, userName }: Props) => {
     <div className="p-1 flex gap-1 justify-start items-start" key={userName}>
       <AvatarIcon iconName={userIcon} />
       <div className="flex items-start">
-        <Text
+        <TextBody
           text={userName}
           className={
             "text-14-regular text-black-100 inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"

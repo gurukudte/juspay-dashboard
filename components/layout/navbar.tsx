@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "../ui/icon";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 import { IconButton } from "@mui/material";
 
 type Props = {
@@ -23,12 +23,12 @@ const NavBar = ({ setLeftDrawerStatus, setRightDrawerStatus }: Props) => {
           <Icon iconName="Star" />
         </div>
         <div className="flex">
-          <Text
+          <TextBody
             text={"Dashboards"}
             className={" text-14-regular text-black-40"}
           />
-          <Text text={"/"} className={" text-14-regular text-black-20"} />
-          <Text
+          <TextBody text={"/"} className={" text-14-regular text-black-20"} />
+          <TextBody
             text={"Default"}
             className={" text-14-regular text-black-100"}
           />

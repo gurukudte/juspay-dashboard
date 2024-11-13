@@ -1,6 +1,6 @@
 import React from "react";
 import { FillerdIcon } from "../ui/icon";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 
 type Props = {
   iconName: string;
@@ -16,14 +16,14 @@ const NotificationCard = ({ iconName, notification, timeStamp }: Props) => {
     >
       <FillerdIcon iconName={iconName} />
       <div className="flex flex-col items-start">
-        <Text
+        <TextBody
           text={notification}
           className={
             "text-14-regular text-black-100 inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"
           }
           padding="p-0"
         />
-        <Text
+        <TextBody
           text={timeStamp}
           className={"text-12-regular text-black-40"}
           padding="p-0"
