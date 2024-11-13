@@ -1,7 +1,12 @@
 "use client";
 
-import AppLayout from "@/components/layout/appLayout";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return <AppLayout />;
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/app/ecommerce");
+  });
+  return <></>;
 }

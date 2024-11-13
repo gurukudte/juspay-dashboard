@@ -1,13 +1,15 @@
+import { ReactNode } from "react";
 import Dashboard from "../sections/dashboard";
 import Text from "../ui/text";
 
-interface MainProps {}
+interface MainProps {
+  children: ReactNode;
+}
 
-const MainWrapper = ({}: MainProps) => {
+const MainWrapper = ({ children }: MainProps) => {
   return (
     <main className="w-full min-h-max mt-24 px-7 flex flex-col gap-4">
-      <Text text={"eCommerce"} className={"text-14-semibold text-black-100"} />
-      <Dashboard />
+      {children}
     </main>
   );
 };

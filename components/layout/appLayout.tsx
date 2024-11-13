@@ -1,17 +1,16 @@
 "use client";
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import NavBar from "./navbar";
-import { useState } from "react";
-import { leftDrawerWidth, rightDrawerWidth } from "@/constants/widths";
+import { ReactNode, useState } from "react";
 import AppBar from "../ui/appbar";
 import LeftDrawer from "./leftDrawer";
 import RightDrawer from "./rightDrawer";
 import MainWrapper from "./main";
 
-export default function AppLayout() {
+type AppLayoutProps = {
+  children: ReactNode;
+};
+
+export default function AppLayout({ children }: AppLayoutProps) {
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(true);
   const [isRightDrawerOpen, setIsRightDrawerOpen] = useState(true);
 
@@ -37,7 +36,7 @@ export default function AppLayout() {
           setRightDrawerStatus={setRightDrawerStatus}
         />
       </AppBar>
-      <MainWrapper />
+      {children}
       <RightDrawer isRightDrawerOpen={isRightDrawerOpen} />
     </div>
   );
