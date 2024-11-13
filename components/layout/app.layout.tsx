@@ -1,18 +1,20 @@
 "use client";
 import NavBar from "./navbar";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import AppBar from "../ui/appbar";
 import LeftDrawer from "./leftDrawer";
 import RightDrawer from "./rightDrawer";
-import MainWrapper from "./main";
+import { useAppContext } from "@/context/app.context";
+import MainWrapper from "../ui/mainWrapper";
 
 type AppLayoutProps = {
   children: ReactNode;
 };
 
 export default function AppLayout({ children }: AppLayoutProps) {
+  const { currentRoute } = useAppContext();
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(true);
-  const [isRightDrawerOpen, setIsRightDrawerOpen] = useState(true);
+  const [isRightDrawerOpen, setIsRightDrawerOpen] = useState(false);
 
   //function to set leftDrawerStatus
   const setLeftDrawerStatus = () => {
@@ -23,8 +25,14 @@ export default function AppLayout({ children }: AppLayoutProps) {
     setIsRightDrawerOpen(!isRightDrawerOpen);
   };
 
+  //showing right-side-drawer in ecommerce route
+  useEffect(() => {
+    if (currentRoute === "/app/ecommerce") {
+      setIsRightDrawerOpen(true);
+    }
+  }, [currentRoute]);
   return (
-    <div className="w-full h-screen flex justify-between">
+    <div className="w-full flex justify-between">
       <LeftDrawer isLeftDrawerOpen={isLeftDrawerOpen} />
       <AppBar
         position="fixed"
@@ -36,7 +44,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
           setRightDrawerStatus={setRightDrawerStatus}
         />
       </AppBar>
-      {children}
+      <MainWrapper>{children}</MainWrapper>
       <RightDrawer isRightDrawerOpen={isRightDrawerOpen} />
     </div>
   );

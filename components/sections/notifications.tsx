@@ -1,4 +1,4 @@
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 import NotificationCard from "../custom/notificationCard";
 const notifications = [
   {
@@ -28,7 +28,7 @@ type Props = {};
 const Notifications = (props: Props) => {
   return (
     <div className="flex flex-col gap-2">
-      <Text
+      <TextBody
         text={"Notifications"}
         className={"text-14-semibold text-black-100"}
         padding="py-2 px-1"

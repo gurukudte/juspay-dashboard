@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 const topSellingProducts = [
   {
     name: "ASOS Ridley High Waist",
@@ -37,7 +37,7 @@ type Props = {};
 const ProductTable = (props: Props) => {
   return (
     <div className=" bg-primary-light rounded-2xl flex flex-col p-6 gap-1">
-      <Text
+      <TextBody
         text={"Top Selling Products"}
         className={" text-14-semibold text-black-100"}
         padding="p-0"

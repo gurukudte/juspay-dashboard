@@ -1,5 +1,5 @@
-import Metrics from "../custom/metrics";
-import ProductTable from "../custom/productTable";
+import Metrics from "../../../components/custom/metrics";
+import ProductTable from "../../../components/custom/productTable";
 
 const Dashboard = () => {
   return (

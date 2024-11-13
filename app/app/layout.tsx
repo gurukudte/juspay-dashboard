@@ -1,4 +1,4 @@
-import AppLayout from "@/components/layout/appLayout";
+import AppLayout from "@/components/layout/app.layout";
 import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {

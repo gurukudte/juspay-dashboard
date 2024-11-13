@@ -1,7 +1,7 @@
 import { leftDrawerWidth } from "@/constants/widths";
 import React from "react";
 import { Icon } from "../ui/icon";
-import Text from "../ui/text";
+import TextBody from "../ui/text";
 import DrawerWrapper from "../ui/drawer";
 
 type Props = {
@@ -17,7 +17,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
     >
       <div className="flex gap-2 justify-left items-center">
         <Icon iconName={"ByeWind"} size={24} />
-        <Text
+        <TextBody
           text={"ByeWind"}
           className={"text-14-regular text-black-100"}
           padding={" "}
@@ -25,16 +25,19 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
       </div>
       <div className="flex flex-col gap-1 bottom-3">
         <div className="flex gap-2 justify-start items-center">
-          <Text
+          <TextBody
             text={"Favorites"}
             className={"text-14-regular text-black-40"}
           />
-          <Text text={"Recently"} className={"text-14-regular text-black-20"} />
+          <TextBody
+            text={"Recently"}
+            className={"text-14-regular text-black-20"}
+          />
         </div>
         <ul className="flex flex-col gap-1 justify-start items-left">
           <li className="flex gap-1 justify-start items-center px-2 py-1">
             <Icon iconName={"Dot"} size={16} padding="none" />
-            <Text
+            <TextBody
               text={"Overview"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -42,7 +45,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           </li>
           <li className="flex gap-1 justify-start items-center px-2 py-1">
             <Icon iconName={"Dot"} size={16} padding="none" />
-            <Text
+            <TextBody
               text={"Projects"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -52,7 +55,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
       </div>
       <div className="flex flex-col gap-1 bottom-3">
         <div className="flex gap-2 justify-start items-center">
-          <Text
+          <TextBody
             text={"Dashboards"}
             className={"text-14-regular text-black-40"}
           />
@@ -61,7 +64,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 bg-black-5 rounded-lg">
             <Icon iconName={"Group"} size={20} padding="none" />
             <Icon iconName={"Default"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Default"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -70,7 +73,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"GreaterArrow"} size={20} padding="none" />
             <Icon iconName={"Bag"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"eCommerce"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -79,7 +82,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"GreaterArrow"} size={20} padding="none" />
             <Icon iconName={"Bag"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"eCommerce"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -88,7 +91,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"GreaterArrow"} size={20} padding="none" />
             <Icon iconName={"FolderNotch"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Projects"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -97,7 +100,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"GreaterArrow"} size={20} padding="none" />
             <Icon iconName={"Book"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Online Courses"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -107,41 +110,44 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
       </div>
       <div className="flex flex-col gap-1 bottom-3">
         <div className="flex gap-2 justify-start items-center">
-          <Text text={"Pages"} className={"text-14-regular text-black-40"} />
+          <TextBody
+            text={"Pages"}
+            className={"text-14-regular text-black-40"}
+          />
         </div>
         <ul className="flex flex-col gap-1 justify-start items-left bottom-3">
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"DownArrow"} size={20} padding="none" />
             <Icon iconName={"Profile"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"User Profile"}
               className={"text-14-regular text-black-100"}
               padding="none"
             />
           </li>
           <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <Text
+            <TextBody
               text={"Projects"}
               className={"text-14-regular text-black-100"}
               padding="none"
             />
           </li>
           <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <Text
+            <TextBody
               text={"Campaigns"}
               className={"text-14-regular text-black-100"}
               padding="none"
             />
           </li>
           <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <Text
+            <TextBody
               text={"Documents"}
               className={"text-14-regular text-black-100"}
               padding="none"
             />
           </li>
           <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <Text
+            <TextBody
               text={"Followers"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -150,7 +156,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"DownArrow"} size={20} padding="none" />
             <Icon iconName={"Account"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Account"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -159,7 +165,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"DownArrow"} size={20} padding="none" />
             <Icon iconName={"UsersThree"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Corporate"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -168,7 +174,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"DownArrow"} size={20} padding="none" />
             <Icon iconName={"Blog"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Blog"}
               className={"text-14-regular text-black-100"}
               padding="none"
@@ -177,7 +183,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           <li className="flex gap-1 justify-start items-center py-1 ">
             <Icon iconName={"DownArrow"} size={20} padding="none" />
             <Icon iconName={"Social"} size={20} padding="none" />
-            <Text
+            <TextBody
               text={"Social"}
               className={"text-14-regular text-black-100"}
               padding="none"

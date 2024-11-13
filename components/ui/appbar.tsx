@@ -1,3 +1,4 @@
+"use client";
 import { leftDrawerWidth, rightDrawerWidth } from "@/constants/widths";
 import { styled } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
