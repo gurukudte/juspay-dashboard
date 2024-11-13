@@ -5,18 +5,18 @@ const CustomCheckbox = ({}: CustomCheckboxProps) => {
   return (
     <Checkbox
       sx={{
+        minHeight: 40,
+        minWidth: 24,
+        padding: 0,
         "& .MuiSvgIcon-root": {
           fontSize: 16,
-        },
-        "&.Mui-checked": {
-          color: "#4caf50", // Custom checked color
         },
         "&:hover": {
           backgroundColor: "rgba(76, 175, 80, 0.1)",
         },
       }}
-      icon={<Icon iconName={"CheckBox"} />}
-      checkedIcon={<Icon iconName={"SelectedCheckbox"} />}
+      icon={<Icon iconName={"CheckBox"} size={16} />}
+      checkedIcon={<Icon iconName={"SelectedCheckbox"} size={16} />}
       disableRipple
     />
   );

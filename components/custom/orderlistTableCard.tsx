@@ -24,7 +24,7 @@ const OrderListCard = ({ order }: Props) => {
           key={orderItem}
           className={`flex justify-start items-center w-full min-w-20 min-h-10 ${
             index === 3 ? "max-w-[400px]" : "max-w-[220px]"
-          }`}
+          } inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]`}
         >
           <TextBody
             text={orderItem}
