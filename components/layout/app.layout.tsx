@@ -5,7 +5,6 @@ import AppBar from "../ui/appbar";
 import LeftDrawer from "./leftDrawer";
 import RightDrawer from "./rightDrawer";
 import { useAppContext } from "@/context/app.context";
-import { useRouter } from "next/router";
 import MainWrapper from "../ui/mainWrapper";
 
 type AppLayoutProps = {
@@ -26,7 +25,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
     setIsRightDrawerOpen(!isRightDrawerOpen);
   };
 
-  //hiding right-side-drawer in orderlist route
+  //showing right-side-drawer in ecommerce route
   useEffect(() => {
     if (currentRoute === "/app/ecommerce") {
       setIsRightDrawerOpen(true);
