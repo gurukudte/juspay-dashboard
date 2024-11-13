@@ -26,6 +26,14 @@ module.exports = {
         "primary-blue": "rgba(227, 245, 255, 1)", // Primary blue color
         "primary-light": "rgba(247, 249, 251, 1)", // Primary light color
         "primary-purple": "rgba(229, 236, 246, 1)", // Primary puple color
+        "secondary-Indigo": "rgba(149, 164, 252, 1)", // seconday indigo color
+        "secondary-green": "rgba(161, 227, 203, 1)", // seconday green color
+        "secondary-blue": "rgba(177, 227, 255, 1)", // seconday blue color
+        "secondary-yellow": "rgba(255, 233, 153, 1)", // seconday yellow color
+        "status-inProcess": "rgba(138, 140, 217, 1)",
+        "status-complete": "rgba(74, 167, 133, 1)",
+        "status-pending": "rgba(89, 168, 212, 1)",
+        "status-approved": "rgba(255, 197, 85, 1)",
       },
     },
   },

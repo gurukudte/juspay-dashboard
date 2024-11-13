@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CustomCheckbox from "../ui/checkBox";
 import TextBody from "../ui/text";
+import { Icon } from "../ui/icon";
 
 type Props = {
   order: {
@@ -11,26 +13,152 @@ type Props = {
     time: string;
     status: string;
   };
+  isSelectAll: boolean;
 };
 
-const OrderListCard = ({ order }: Props) => {
+const OrderListCard = ({ order, isSelectAll }: Props) => {
+  const userIconNames = [
+    "User-1",
+    "User-2",
+    "User-3",
+    "User-4",
+    "User-5",
+    "User-6",
+  ];
+
+  const UserCard = ({ userName }: { userName: string }) => {
+    return (
+      <>
+        <Icon
+          iconName={
+            userIconNames[Math.floor(Math.random() * userIconNames.length)]
+          }
+          padding={"mr-1"}
+          size={24}
+        />
+        <TextBody
+          text={userName}
+          className={"text-12-regular text-black-100"}
+          padding="p-0"
+        />
+      </>
+    );
+  };
+
+  const DateCard = ({ date }: { date: string }) => {
+    return (
+      <>
+        <Icon iconName={"CalendarBlank"} padding={"mr-1"} size={16} />
+        <TextBody
+          text={date}
+          className={"text-12-regular text-black-100"}
+          padding="p-0"
+        />
+      </>
+    );
+  };
+
+  const statusColors = {
+    "In Progress": "status-inProcess",
+    Complete: "status-complete",
+    Pending: "status-pending",
+    Approved: "status-approved",
+    Rejected: "text-black-40",
+  };
+
+  const StatusCard = ({ status }: { status: any }) => {
+    switch (status) {
+      case "In Progress":
+        return (
+          <>
+            <span
+              className={`w-[6px] h-[6px] rounded-full bg-secondary-Indigo mr-1`}
+            ></span>
+            <TextBody
+              text={status}
+              className={`text-12-regular text-status-inProcess`}
+              padding="p-0"
+            />
+          </>
+        );
+      case "Complete":
+        return (
+          <>
+            <span
+              className={`w-[6px] h-[6px] rounded-full bg-secondary-green mr-1`}
+            ></span>
+            <TextBody
+              text={status}
+              className={`text-12-regular text-status-complete`}
+              padding="p-0"
+            />
+          </>
+        );
+      case "Approved":
+        return (
+          <>
+            <span
+              className={`w-[6px] h-[6px] rounded-full bg-secondary-yellow mr-1`}
+            ></span>
+            <TextBody
+              text={status}
+              className={`text-12-regular text-status-approved`}
+              padding="p-0"
+            />
+          </>
+        );
+      case "Rejected":
+        return (
+          <>
+            <span
+              className={`w-[6px] h-[6px] rounded-full bg-black-40 mr-1`}
+            ></span>
+            <TextBody
+              text={status}
+              className={`text-12-regular text-black-40`}
+              padding="p-0"
+            />
+          </>
+        );
+      case "Pending":
+        return (
+          <>
+            <span
+              className={`w-[6px] h-[6px] rounded-full bg-secondary-blue mr-1`}
+            ></span>
+            <TextBody
+              text={status}
+              className={`text-12-regular text-status-pending`}
+              padding="p-0"
+            />
+          </>
+        );
+    }
+    return <></>;
+  };
+
   return (
     <div className="flex border-solid border-b border-black-10 box-border">
       <ul className="min-w-5">
-        <CustomCheckbox />
+        <CustomCheckbox isChecked={isSelectAll} onChange={() => {}} />
       </ul>
       {Object.values(order).map((orderItem, index) => (
         <ul
           key={orderItem}
-          className={`flex justify-start items-center w-full min-w-20 min-h-10 ${
+          className={`py-2 px-3 flex justify-start items-center w-full min-w-20 min-h-10 ${
             index === 3 ? "max-w-[400px]" : "max-w-[220px]"
           } inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]`}
         >
-          <TextBody
-            text={orderItem}
-            className={"text-12-regular text-black-40"}
-            padding="py-2 px-3"
-          />
+          {index === 1 && <UserCard userName={orderItem} />}
+          {index === 4 && <DateCard date={orderItem} />}
+          {index === 5 && <StatusCard status={orderItem} />}
+          {(index === 0 || index === 2 || index === 3) && (
+            <TextBody
+              text={orderItem}
+              className={"text-12-regular text-black-100"}
+              padding="p-0"
+            />
+          )}
         </ul>
       ))}
     </div>

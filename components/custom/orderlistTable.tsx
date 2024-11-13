@@ -1,9 +1,8 @@
-import { Checkbox } from "@mui/material";
-import React from "react";
+"use client";
 import TextBody from "../ui/text";
 import CustomCheckbox from "../ui/checkBox";
-import { Icon } from "../ui/icon";
 import OrderListCard from "./orderlistTableCard";
+import { useState } from "react";
 const data = [
   {
     id: "#CM9801",
@@ -50,6 +49,7 @@ const data = [
 type Props = {};
 
 const OrderListTable = (props: Props) => {
+  const [isSelectAll, seIsSelectAll] = useState<boolean>(false);
   const tableHeaders = [
     "Order ID",
     "User",
@@ -58,11 +58,18 @@ const OrderListTable = (props: Props) => {
     "Date",
     "Status",
   ];
+  const handleIsSelectedAll = (event: React.ChangeEvent<HTMLInputElement>) => {
+    seIsSelectAll(event.target.checked);
+  };
+
   return (
     <div className="flex flex-col">
       <div className="flex border-solid border-b border-black-10 box-border">
         <ul className="min-w-5">
-          <CustomCheckbox />
+          <CustomCheckbox
+            isChecked={isSelectAll}
+            onChange={handleIsSelectedAll}
+          />
         </ul>
         {tableHeaders.map((header) => (
           <ul
@@ -81,7 +88,7 @@ const OrderListTable = (props: Props) => {
       </div>
       {data.map((item, index) => (
         <ul key={item.id + index}>
-          <OrderListCard order={item} />
+          <OrderListCard order={item} isSelectAll={isSelectAll} />
         </ul>
       ))}
     </div>
