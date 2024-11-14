@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { Icon } from "./icon";
 import TextBody from "./text";
 

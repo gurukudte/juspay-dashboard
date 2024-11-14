@@ -1,5 +1,6 @@
+"use cllient";
 import { leftDrawerWidth } from "@/constants/widths";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Icon } from "../ui/icon";
 import TextBody from "../ui/text";
 import DrawerWrapper from "../ui/drawer";
@@ -7,7 +8,6 @@ import { Collapse } from "@mui/material";
 import MenuHeader from "../ui/menuHeader";
 import { usePathname, useRouter } from "next/navigation";
 import MenuButton from "../ui/menuButton";
-import { usePathnameChange } from "@/hooks/pathName.hook";
 import { useAppContext } from "@/context/app.context";
 
 type Props = {
@@ -138,7 +138,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
               "Documents",
               "Followers",
             ].map((item) => (
-              <li>
+              <li key={item}>
                 <MenuButton
                   isActive={false}
                   buttonName={item}

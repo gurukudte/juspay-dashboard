@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { Icon } from "./icon";
 import TextBody from "./text";
 
@@ -16,15 +16,15 @@ const MenuHeader = ({ openMenu, menuName, menuIcon, onClick }: Props) => {
       onClick={onClick}
     >
       {openMenu !== menuName ? (
-        <Icon iconName={"GreaterArrow"} size={20} padding="none" />
+        <Icon iconName={"GreaterArrow"} size={20} padding="p-0" />
       ) : (
-        <Icon iconName={"DownArrow"} size={20} padding="none" />
+        <Icon iconName={"DownArrow"} size={20} padding="p-0" />
       )}
-      <Icon iconName={menuIcon} size={20} padding="none" />
+      <Icon iconName={menuIcon} size={20} padding="p-0" />
       <TextBody
         text={menuName}
         className={"text-14-regular text-black-100"}
-        padding="none"
+        padding="p-0"
       />
     </button>
   );
