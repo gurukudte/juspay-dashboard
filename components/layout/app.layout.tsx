@@ -29,6 +29,8 @@ export default function AppLayout({ children }: AppLayoutProps) {
   useEffect(() => {
     if (currentRoute === "/app/ecommerce") {
       setIsRightDrawerOpen(true);
+    } else {
+      setIsRightDrawerOpen(false);
     }
   }, [currentRoute]);
   return (

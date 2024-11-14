@@ -58,6 +58,8 @@ const OrderListTable = (props: Props) => {
     "Date",
     "Status",
   ];
+
+  //handler function for selectAll
   const handleIsSelectedAll = (event: React.ChangeEvent<HTMLInputElement>) => {
     seIsSelectAll(event.target.checked);
   };
@@ -71,6 +73,7 @@ const OrderListTable = (props: Props) => {
             onChange={handleIsSelectedAll}
           />
         </ul>
+
         {tableHeaders.map((header) => (
           <ul
             key={header}
@@ -85,6 +88,7 @@ const OrderListTable = (props: Props) => {
             />
           </ul>
         ))}
+        <ul className="min-w-12"></ul>
       </div>
       {data.map((item, index) => (
         <ul key={item.id + index}>

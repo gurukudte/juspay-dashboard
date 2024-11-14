@@ -6,7 +6,7 @@ type IconProps = {
   padding?: string;
 };
 
-const Icon = ({ iconName, size, padding }: IconProps) => {
+const CustomIcon = ({ iconName, size, padding }: IconProps) => {
   return (
     <div className={`${padding ? padding : "p-1"}`}>
       <Image
@@ -50,4 +50,4 @@ const AvatarIcon = ({ iconName }: AvatarIconProps) => {
   );
 };
 
-export { Icon, FillerdIcon, AvatarIcon };
+export { CustomIcon as Icon, FillerdIcon, AvatarIcon };

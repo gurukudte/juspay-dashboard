@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomCheckbox from "../ui/checkBox";
 import TextBody from "../ui/text";
 import { Icon } from "../ui/icon";
@@ -17,6 +17,7 @@ type Props = {
 };
 
 const OrderListCard = ({ order, isSelectAll }: Props) => {
+  const [isSelected, setIsSelected] = useState<boolean>(false);
   const userIconNames = [
     "User-1",
     "User-2",
@@ -25,6 +26,11 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
     "User-5",
     "User-6",
   ];
+
+  //select handler
+  const handleSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSelected(event.target.checked);
+  };
 
   const UserCard = ({ userName }: { userName: string }) => {
     return (
@@ -58,14 +64,7 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
     );
   };
 
-  const statusColors = {
-    "In Progress": "status-inProcess",
-    Complete: "status-complete",
-    Pending: "status-pending",
-    Approved: "status-approved",
-    Rejected: "text-black-40",
-  };
-
+  //Status card to show status of the order
   const StatusCard = ({ status }: { status: any }) => {
     switch (status) {
       case "In Progress":
@@ -137,17 +136,22 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
     return <></>;
   };
 
+  //logic to update checkbox status , if all are selected or unselected
+  useEffect(() => {
+    setIsSelected(isSelectAll);
+  }, [isSelectAll]);
+
   return (
     <div className="flex border-solid border-b border-black-10 box-border">
       <ul className="min-w-5">
-        <CustomCheckbox isChecked={isSelectAll} onChange={() => {}} />
+        <CustomCheckbox isChecked={isSelected} onChange={handleSelect} />
       </ul>
       {Object.values(order).map((orderItem, index) => (
         <ul
           key={orderItem}
-          className={`py-2 px-3 flex justify-start items-center w-full min-w-20 min-h-10 ${
+          className={`py-2 px-3 flex justify-start items-center w-full min-h-10 ${
             index === 3 ? "max-w-[400px]" : "max-w-[220px]"
-          } inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]`}
+          } inline-block text-nowrap overflow-hidden text-ellipsis`}
         >
           {index === 1 && <UserCard userName={orderItem} />}
           {index === 4 && <DateCard date={orderItem} />}
@@ -161,6 +165,11 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
           )}
         </ul>
       ))}
+      <ul className="min-w-12 flex items-center justify-center">
+        {Object.values(order).includes("Rejected") && (
+          <Icon iconName={"DotsThreeOutlineVertical"} size={16} />
+        )}
+      </ul>
     </div>
   );
 };

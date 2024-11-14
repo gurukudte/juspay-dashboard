@@ -50,7 +50,7 @@ const MainWrapper = ({
       isLeftDrawerOpen={isLeftDrawerOpen}
       isRightDrawerOpen={isRightDrawerOpen}
     >
-      <main className="w-full min-h-max mt-24 px-7 flex flex-col gap-4">
+      <main className="w-full min-h-max mt-24 px-7 flex flex-col gap-4 transition-all">
         {children}
       </main>
     </CustomBox>

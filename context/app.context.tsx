@@ -1,4 +1,5 @@
 "use client";
+import { usePathnameChange } from "@/hooks/pathName.hook";
 import { usePathname } from "next/navigation";
 import {
   createContext,
@@ -29,11 +30,7 @@ interface IAppProvider {
 export const AppContextProvider: React.FC<IAppProvider> = ({
   children,
 }: IAppProvider) => {
-  const [currentRoute, setCurrentRoute] = useState("");
-  const pathName = usePathname();
-  useEffect(() => {
-    setCurrentRoute(pathName);
-  }, []);
+  const currentRoute = usePathnameChange();
 
   return (
     <AppContext.Provider value={{ currentRoute }}>

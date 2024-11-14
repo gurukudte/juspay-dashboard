@@ -1,5 +1,7 @@
 import OrderListTable from "@/components/custom/orderlistTable";
 import { Icon } from "@/components/ui/icon";
+import CustomInput from "@/components/ui/input";
+import { FormControl, OutlinedInput } from "@mui/material";
 import React from "react";
 
 type Props = {};
@@ -13,7 +15,9 @@ const OrderList = (props: Props) => {
           <Icon iconName={"FunnelSimple"} />
           <Icon iconName={"ArrowsDownUp"} />
         </div>
-        <div>search</div>
+        <div>
+          <CustomInput />
+        </div>
       </div>
       <OrderListTable />
     </div>

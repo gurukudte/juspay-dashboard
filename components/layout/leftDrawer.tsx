@@ -1,14 +1,29 @@
 import { leftDrawerWidth } from "@/constants/widths";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "../ui/icon";
 import TextBody from "../ui/text";
 import DrawerWrapper from "../ui/drawer";
+import { Collapse } from "@mui/material";
+import MenuHeader from "../ui/menuHeader";
+import { usePathname, useRouter } from "next/navigation";
+import MenuButton from "../ui/menuButton";
+import { usePathnameChange } from "@/hooks/pathName.hook";
+import { useAppContext } from "@/context/app.context";
 
 type Props = {
   isLeftDrawerOpen: boolean;
 };
 
 const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
+  const [openMenu, setOpenMenu] = useState("");
+  const { currentRoute } = useAppContext();
+  const router = useRouter();
+
+  //handler function to setmenu
+  const handleOpenMenu = (menuName: string) => {
+    openMenu === menuName ? setOpenMenu("") : setOpenMenu(menuName);
+  };
+
   return (
     <DrawerWrapper
       width={leftDrawerWidth}
@@ -61,51 +76,44 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           />
         </div>
         <ul className="flex flex-col gap-1 justify-start items-left bottom-3">
-          <li className="flex gap-1 justify-start items-center py-1 bg-black-5 rounded-lg">
-            <Icon iconName={"Group"} size={20} padding="none" />
-            <Icon iconName={"Default"} size={20} padding="none" />
-            <TextBody
-              text={"Default"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
+          <MenuButton
+            isActive={currentRoute === "/app/ecommerce"}
+            buttonName={"Default"}
+            routeOnClick={() => router.push("/app/ecommerce")}
+            iconName={"Default"}
+          />
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"eCommerce"}
+            menuIcon={"Bag"}
+            onClick={() => handleOpenMenu("eCommerce")}
+          />
+          <Collapse
+            in={openMenu === "eCommerce"}
+            timeout={"auto"}
+            unmountOnExit
+          >
+            <MenuButton
+              isActive={currentRoute === "/app/orderlist"}
+              buttonName={"Order List"}
+              className="pl-12"
+              routeOnClick={() => {
+                router.push("/app/orderlist"), setOpenMenu("eCommerce");
+              }}
             />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"GreaterArrow"} size={20} padding="none" />
-            <Icon iconName={"Bag"} size={20} padding="none" />
-            <TextBody
-              text={"eCommerce"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"GreaterArrow"} size={20} padding="none" />
-            <Icon iconName={"Bag"} size={20} padding="none" />
-            <TextBody
-              text={"eCommerce"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"GreaterArrow"} size={20} padding="none" />
-            <Icon iconName={"FolderNotch"} size={20} padding="none" />
-            <TextBody
-              text={"Projects"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"GreaterArrow"} size={20} padding="none" />
-            <Icon iconName={"Book"} size={20} padding="none" />
-            <TextBody
-              text={"Online Courses"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
+          </Collapse>
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Projects"}
+            menuIcon={"FolderNotch"}
+            onClick={() => handleOpenMenu("Projects")}
+          />
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Online Courses"}
+            menuIcon={"Book"}
+            onClick={() => handleOpenMenu("Online Courses")}
+          />
         </ul>
       </div>
       <div className="flex flex-col gap-1 bottom-3">
@@ -116,79 +124,56 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
           />
         </div>
         <ul className="flex flex-col gap-1 justify-start items-left bottom-3">
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"DownArrow"} size={20} padding="none" />
-            <Icon iconName={"Profile"} size={20} padding="none" />
-            <TextBody
-              text={"User Profile"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <TextBody
-              text={"Projects"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <TextBody
-              text={"Campaigns"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <TextBody
-              text={"Documents"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ml-12">
-            <TextBody
-              text={"Followers"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"DownArrow"} size={20} padding="none" />
-            <Icon iconName={"Account"} size={20} padding="none" />
-            <TextBody
-              text={"Account"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"DownArrow"} size={20} padding="none" />
-            <Icon iconName={"UsersThree"} size={20} padding="none" />
-            <TextBody
-              text={"Corporate"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"DownArrow"} size={20} padding="none" />
-            <Icon iconName={"Blog"} size={20} padding="none" />
-            <TextBody
-              text={"Blog"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
-          <li className="flex gap-1 justify-start items-center py-1 ">
-            <Icon iconName={"DownArrow"} size={20} padding="none" />
-            <Icon iconName={"Social"} size={20} padding="none" />
-            <TextBody
-              text={"Social"}
-              className={"text-14-regular text-black-100"}
-              padding="none"
-            />
-          </li>
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Profile"}
+            menuIcon={"Profile"}
+            onClick={() => handleOpenMenu("Profile")}
+          />
+          <Collapse in={openMenu === "Profile"} timeout={"auto"} unmountOnExit>
+            {[
+              "Overview",
+              "Projects",
+              "Campaigns",
+              "Documents",
+              "Followers",
+            ].map((item) => (
+              <li>
+                <MenuButton
+                  isActive={false}
+                  buttonName={item}
+                  className="pl-12"
+                  routeOnClick={() => {
+                    router.push("/app/orderlist"), setOpenMenu("eCommerce");
+                  }}
+                />
+              </li>
+            ))}
+          </Collapse>
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Account"}
+            menuIcon={"Account"}
+            onClick={() => handleOpenMenu("Account")}
+          />
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Corporate"}
+            menuIcon={"UsersThree"}
+            onClick={() => handleOpenMenu("Corporate")}
+          />
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Blog"}
+            menuIcon={"Blog"}
+            onClick={() => handleOpenMenu("Blog")}
+          />
+          <MenuHeader
+            openMenu={openMenu}
+            menuName={"Social"}
+            menuIcon={"Social"}
+            onClick={() => handleOpenMenu("Social")}
+          />
         </ul>
       </div>
     </DrawerWrapper>
