@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JusPay-Dashboard
+
+## Project Description
+This project, **JusPay-Dashboard**, was created using:
+- **Next.js** (version 15.0.1) for the application framework
+- **Tailwind CSS** for utility-first, responsive styling
+- **Material UI** for pre-styled, accessible React components
 
 ## Getting Started
 
