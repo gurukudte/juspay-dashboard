@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "../ui/icon";
 import TextBody from "../ui/text";
 import { IconButton } from "@mui/material";
+import CustomInput from "../ui/input";
 
 type Props = {
   setLeftDrawerStatus: () => void;
@@ -34,8 +35,10 @@ const NavBar = ({ setLeftDrawerStatus, setRightDrawerStatus }: Props) => {
           />
         </div>
       </div>
-      <div>
-        <div></div>
+      <div className="flex items-center justify-center gap-2">
+        <div>
+          <CustomInput isGlobalSearch />
+        </div>
         <div className="flex gap-2">
           <Icon iconName="IconSet" />
           <Icon iconName="ClockCounterClockwise" />
