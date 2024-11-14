@@ -1,6 +1,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
+//custom hook to get current pah on changes in routes
 export const usePathnameChange = () => {
   const pathname = usePathname();
   const previousPathname = useRef(pathname);
@@ -8,7 +9,7 @@ export const usePathnameChange = () => {
   useEffect(() => {
     if (previousPathname.current !== pathname) {
       console.log("Pathname changed to:", pathname);
-      previousPathname.current = pathname; // Update the previous pathname
+      previousPathname.current = pathname; // Updating the previous pathname
     }
   }, [pathname]);
 

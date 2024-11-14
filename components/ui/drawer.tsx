@@ -9,6 +9,7 @@ type Props = {
   alinement: "top" | "right" | "bottom" | "left" | undefined;
 };
 
+//Creating custom drawer with needed styles
 const DrawerWrapper = ({ children, width, open, alinement }: Props) => {
   const theme = useTheme();
   return (

@@ -8,19 +8,20 @@ interface CustomBoxProps extends BoxProps {
   isRightDrawerOpen?: boolean;
 }
 
+//creating custom main wrapper whose width is calculated on left & right drawer status
 const CustomBox = styled(MuiBox, {
   shouldForwardProp: (prop) =>
     prop !== "isLeftDrawerOpen" && prop !== "isRightDrawerOpen",
 })<CustomBoxProps>(
   ({ theme, isLeftDrawerOpen = false, isRightDrawerOpen = false }) => {
-    // Set leftDrawerWidth based on leftDrawerOpen state
+    // Setting leftDrawerWidth based on leftDrawerOpen state
     const leftDrawerWidthValue = isLeftDrawerOpen ? leftDrawerWidth : 0;
 
     return {
       background: "white",
       boxShadow: "none",
 
-      // Apply conditional styles
+      // Applying conditional styles
       width: `calc(100% - ${
         leftDrawerWidthValue + (isRightDrawerOpen ? rightDrawerWidth : 0)
       }px)`,

@@ -13,8 +13,10 @@ type AppContextValue = {
   currentRoute: string;
 };
 
+//creating app context
 const AppContext = createContext<AppContextValue | null>(null);
 
+//creating app context hook to use within our components
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
@@ -27,6 +29,7 @@ interface IAppProvider {
   children: ReactNode;
 }
 
+//creating app context Provider to adding to providers
 export const AppContextProvider: React.FC<IAppProvider> = ({
   children,
 }: IAppProvider) => {
