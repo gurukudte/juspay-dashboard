@@ -36,7 +36,7 @@ type Props = {};
 
 const ProductTable = (props: Props) => {
   return (
-    <div className=" bg-primary-light rounded-2xl flex flex-col p-6 gap-1">
+    <div className=" bg-primary-light rounded-2xl flex flex-col p-6 gap-1 h-full">
       <TextBody
         text={"Top Selling Products"}
         className={" text-14-semibold text-black-100"}

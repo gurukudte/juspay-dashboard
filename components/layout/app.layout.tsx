@@ -1,7 +1,6 @@
 "use client";
 import NavBar from "./navbar";
 import { ReactNode, useEffect, useState } from "react";
-import AppBar from "../ui/appbar";
 import LeftDrawer from "./leftDrawer";
 import RightDrawer from "./rightDrawer";
 import { useAppContext } from "@/context/app.context";
@@ -36,16 +35,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="w-full flex justify-between">
       <LeftDrawer isLeftDrawerOpen={isLeftDrawerOpen} />
-      <AppBar
-        position="fixed"
+      <NavBar
+        setLeftDrawerStatus={setLeftDrawerStatus}
+        setRightDrawerStatus={setRightDrawerStatus}
         leftDrawerOpen={isLeftDrawerOpen}
         rightDrawerOpen={isRightDrawerOpen}
-      >
-        <NavBar
-          setLeftDrawerStatus={setLeftDrawerStatus}
-          setRightDrawerStatus={setRightDrawerStatus}
-        />
-      </AppBar>
+      />
       <MainWrapper>{children}</MainWrapper>
       <RightDrawer isRightDrawerOpen={isRightDrawerOpen} />
     </div>

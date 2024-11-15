@@ -1,6 +1,7 @@
 import React from "react";
 import { AvatarIcon } from "../ui/icon";
 import TextBody from "../ui/text";
+import { useAppContext } from "@/context/app.context";
 
 type Props = {
   avatarName: string;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 const ActivitiesCard = ({ avatarName, activity, timeStamp }: Props) => {
+  const { themeText } = useAppContext();
   return (
     <div
       className="p-1 flex gap-1 justify-start items-start"
@@ -19,14 +21,16 @@ const ActivitiesCard = ({ avatarName, activity, timeStamp }: Props) => {
         <TextBody
           text={activity}
           className={
-            "text-14-regular text-black-100 inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"
+            "text-14-regular inline-block text-nowrap overflow-hidden text-ellipsis max-w-[198px]"
           }
           padding="none"
+          color={themeText.primary}
         />
         <TextBody
           text={timeStamp}
-          className={"text-12-regular text-black-40"}
+          className={"text-12-regular"}
           padding="none"
+          color={themeText.secondary}
         />
       </div>
     </div>

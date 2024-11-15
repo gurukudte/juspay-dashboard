@@ -2,6 +2,7 @@ import React from "react";
 import { AvatarIcon } from "../ui/icon";
 import TextBody from "../ui/text";
 import ActivitiesCard from "../custom/activitiesCard";
+import { useAppContext } from "@/context/app.context";
 const activities = [
   {
     avatarName: "Activities-1",
@@ -33,12 +34,14 @@ const activities = [
 type Props = {};
 
 const Activities = (props: Props) => {
+  const { themeText } = useAppContext();
   return (
     <div className="flex flex-col gap-2">
       <TextBody
         text={"Activities"}
-        className={"text-14-semibold text-black-100"}
+        className={"text-14-semibold "}
         padding="py-2 px-1"
+        color={themeText.primary}
       />
 
       {activities?.map((activity, index) => (

@@ -1,10 +1,16 @@
 import Checkbox from "@mui/material/Checkbox";
 import { Icon } from "./icon";
+import { TbSquareRoundedCheckFilled } from "react-icons/tb";
+import { useAppContext } from "@/context/app.context";
+import { useThemeContext } from "@/context/themeProvider/ThemeContextProvider";
+
 type CustomCheckboxProps = {
   isChecked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 const CustomCheckbox = ({ isChecked, onChange }: CustomCheckboxProps) => {
+  const { themeText } = useAppContext();
+  const { darkMode } = useThemeContext();
   return (
     <div className=" min-h-10 min-w-6 flex items-center justify-center">
       <Checkbox
@@ -21,8 +27,16 @@ const CustomCheckbox = ({ isChecked, onChange }: CustomCheckboxProps) => {
         }}
         checked={isChecked}
         onChange={onChange}
-        icon={<Icon iconName={"UnselectedCheckbox"} size={16} />}
-        checkedIcon={<Icon iconName={"SelectedCheckbox"} size={16} />}
+        icon={
+          darkMode ? (
+            <Icon iconName={"Checkbox-black"} size={16} />
+          ) : (
+            <Icon iconName={"UnselectedCheckbox"} size={16} />
+          )
+        }
+        checkedIcon={
+          <TbSquareRoundedCheckFilled color={themeText.primary} size={16} />
+        }
         disableRipple
       />
     </div>

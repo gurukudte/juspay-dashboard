@@ -1,6 +1,7 @@
 import React from "react";
 import TextBody from "../ui/text";
 import UserCard from "../custom/contactsCard";
+import { useAppContext } from "@/context/app.context";
 const contacts = [
   {
     userIcon: "User-1",
@@ -31,12 +32,14 @@ const contacts = [
 type Props = {};
 
 const Contacts = (props: Props) => {
+  const { themeText } = useAppContext();
   return (
     <div className="flex flex-col gap-2">
       <TextBody
         text={"Contacts"}
-        className={"text-14-semibold text-black-100"}
+        className={"text-14-semibold"}
         padding="py-2 px-1"
+        color={themeText.primary}
       />
 
       {contacts?.map((user, index) => (

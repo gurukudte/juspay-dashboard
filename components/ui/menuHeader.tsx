@@ -1,29 +1,33 @@
 "use client";
-import { Icon } from "./icon";
+import { useTheme } from "@mui/material";
 import TextBody from "./text";
+import { FaAngleRight, FaChevronDown } from "react-icons/fa6";
+import { ReactNode } from "react";
 
 type Props = {
   openMenu: string;
   menuName: string;
-  menuIcon: string;
+  menuIcon: ReactNode;
   onClick: () => void;
 };
 
 const MenuHeader = ({ openMenu, menuName, menuIcon, onClick }: Props) => {
+  const theme = useTheme();
   return (
     <button
       className="flex gap-1 justify-start items-center py-1"
       onClick={onClick}
     >
       {openMenu !== menuName ? (
-        <Icon iconName={"GreaterArrow"} size={20} padding="p-0" />
+        <FaAngleRight color={theme.palette.text.secondary} fontSize={16} />
       ) : (
-        <Icon iconName={"DownArrow"} size={20} padding="p-0" />
+        <FaChevronDown color={theme.palette.text.secondary} fontSize={16} />
       )}
-      <Icon iconName={menuIcon} size={20} padding="p-0" />
+      {menuIcon}
       <TextBody
         text={menuName}
-        className={"text-14-regular text-black-100"}
+        className={"text-14-regular "}
+        color={theme.palette.text.primary}
         padding="p-0"
       />
     </button>

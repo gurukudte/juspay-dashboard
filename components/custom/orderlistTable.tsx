@@ -3,6 +3,7 @@ import TextBody from "../ui/text";
 import CustomCheckbox from "../ui/checkBox";
 import OrderListCard from "./orderlistTableCard";
 import { useState } from "react";
+import { useAppContext } from "@/context/app.context";
 const data = [
   {
     id: "#CM9801",
@@ -50,6 +51,7 @@ type Props = {};
 
 const OrderListTable = (props: Props) => {
   const [isSelectAll, seIsSelectAll] = useState<boolean>(false);
+  const { themeText } = useAppContext();
   const tableHeaders = [
     "Order ID",
     "User",
@@ -66,7 +68,9 @@ const OrderListTable = (props: Props) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex border-solid border-b border-black-10 box-border">
+      <div
+        className={`flex border-solid border-b border-[${themeText.disabled}] box-border`}
+      >
         <ul className="min-w-5">
           <CustomCheckbox
             isChecked={isSelectAll}
@@ -83,8 +87,9 @@ const OrderListTable = (props: Props) => {
           >
             <TextBody
               text={header}
-              className={"text-12-regular text-black-40"}
+              className={"text-12-regular "}
               padding="py-2 px-3"
+              color={themeText.secondary}
             />
           </ul>
         ))}

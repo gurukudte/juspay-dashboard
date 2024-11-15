@@ -1,5 +1,6 @@
 "use client";
 import { AppContextProvider } from "@/context/app.context";
+import { ThemeContextProvider } from "@/context/themeProvider/ThemeContextProvider";
 import React, { ReactNode } from "react";
 
 type Props = {
@@ -7,7 +8,11 @@ type Props = {
 };
 //Adding appcontext provider to provider to use in our layout
 const Providers = ({ children }: Props) => {
-  return <AppContextProvider>{children}</AppContextProvider>;
+  return (
+    <ThemeContextProvider>
+      <AppContextProvider>{children}</AppContextProvider>
+    </ThemeContextProvider>
+  );
 };
 
 export default Providers;

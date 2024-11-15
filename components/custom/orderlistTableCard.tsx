@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import CustomCheckbox from "../ui/checkBox";
 import TextBody from "../ui/text";
 import { Icon } from "../ui/icon";
+import { useAppContext } from "@/context/app.context";
+import { CiCalendar } from "react-icons/ci";
+import { BsThreeDots } from "react-icons/bs";
+import { useThemeContext } from "@/context/themeProvider/ThemeContextProvider";
 
 type Props = {
   order: {
@@ -18,6 +22,8 @@ type Props = {
 
 const OrderListCard = ({ order, isSelectAll }: Props) => {
   const [isSelected, setIsSelected] = useState<boolean>(false);
+  const { themeText } = useAppContext();
+  const { darkMode } = useThemeContext();
   const userIconNames = [
     "User-1",
     "User-2",
@@ -44,7 +50,8 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
         />
         <TextBody
           text={userName}
-          className={"text-12-regular text-black-100"}
+          className={"text-12-regular "}
+          color={themeText.primary}
           padding="p-0"
         />
       </>
@@ -54,10 +61,11 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
   const DateCard = ({ date }: { date: string }) => {
     return (
       <>
-        <Icon iconName={"CalendarBlank"} padding={"mr-1"} size={16} />
+        <CiCalendar color={themeText.primary} size={16} />
         <TextBody
           text={date}
-          className={"text-12-regular text-black-100"}
+          className={"text-12-regular "}
+          color={themeText.primary}
           padding="p-0"
         />
       </>
@@ -110,11 +118,13 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
         return (
           <>
             <span
-              className={`w-[6px] h-[6px] rounded-full bg-black-40 mr-1`}
+              className={`w-[6px] h-[6px] rounded-full bg-white-40 mr-1`}
             ></span>
             <TextBody
               text={status}
-              className={`text-12-regular text-black-40`}
+              className={`text-12-regular text-[${
+                darkMode ? "rgba(255, 255, 255, 0.4)" : "rgba(28, 28, 28, 0.4)"
+              }]`}
               padding="p-0"
             />
           </>
@@ -142,7 +152,9 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
   }, [isSelectAll]);
 
   return (
-    <div className="flex border-solid border-b border-black-10 box-border">
+    <div
+      className={`flex border-solid border-b border-[${themeText.disabled}] box-border`}
+    >
       <ul className="min-w-5">
         <CustomCheckbox isChecked={isSelected} onChange={handleSelect} />
       </ul>
@@ -159,7 +171,8 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
           {(index === 0 || index === 2 || index === 3) && (
             <TextBody
               text={orderItem}
-              className={"text-12-regular text-black-100"}
+              className={"text-12-regular "}
+              color={themeText.primary}
               padding="p-0"
             />
           )}
@@ -167,7 +180,7 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
       ))}
       <ul className="min-w-12 flex items-center justify-center">
         {Object.values(order).includes("Rejected") && (
-          <Icon iconName={"DotsThreeOutlineVertical"} size={16} />
+          <BsThreeDots color={themeText.primary} size={16} />
         )}
       </ul>
     </div>

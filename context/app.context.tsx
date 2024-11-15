@@ -1,5 +1,6 @@
 "use client";
 import { usePathnameChange } from "@/hooks/pathName.hook";
+import { TypeText, useTheme } from "@mui/material";
 import { usePathname } from "next/navigation";
 import {
   createContext,
@@ -11,6 +12,7 @@ import {
 
 type AppContextValue = {
   currentRoute: string;
+  themeText: TypeText;
 };
 
 //creating app context
@@ -34,9 +36,10 @@ export const AppContextProvider: React.FC<IAppProvider> = ({
   children,
 }: IAppProvider) => {
   const currentRoute = usePathnameChange();
+  const themeText = useTheme().palette.text;
 
   return (
-    <AppContext.Provider value={{ currentRoute }}>
+    <AppContext.Provider value={{ themeText, currentRoute }}>
       {children}
     </AppContext.Provider>
   );
