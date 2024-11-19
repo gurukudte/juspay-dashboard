@@ -18,7 +18,7 @@ const OrderList = () => {
       <div
         className={`${
           darkMode ? "bg-white-10" : "bg-primary-light"
-        } rounded-lg p-2 flex justify-between items-center gap-3`}
+        } rounded-lg p-2 flex justify-between items-center gap-3 mb-2 md:mb-0`}
       >
         <div className="flex gap-2 items-center justify-center">
           <IoIosAdd {...props} />

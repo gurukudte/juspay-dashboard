@@ -153,15 +153,15 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
 
   return (
     <div
-      className={`flex border-solid border-b border-[${themeText.disabled}] box-border`}
+      className={`w-full flex md:border-solid d:border-b md:border-[${themeText.disabled}] md:box-border`}
     >
-      <ul className="min-w-5">
+      <ul className="min-w-5 hidden md:flex">
         <CustomCheckbox isChecked={isSelected} onChange={handleSelect} />
       </ul>
       {Object.values(order).map((orderItem, index) => (
         <ul
           key={orderItem}
-          className={`py-2 px-3 flex justify-start items-center w-full min-h-10 ${
+          className={`py-2 px-3 hidden md:flex justify-start items-center w-full min-h-10 ${
             index === 3 ? "max-w-[400px]" : "max-w-[220px]"
           } inline-block text-nowrap overflow-hidden text-ellipsis`}
         >
@@ -178,11 +178,86 @@ const OrderListCard = ({ order, isSelectAll }: Props) => {
           )}
         </ul>
       ))}
-      <ul className="min-w-12 flex items-center justify-center">
+      <ul className="min-w-12 hidden md:flex items-center justify-center ">
         {Object.values(order).includes("Rejected") && (
           <BsThreeDots color={themeText.primary} size={16} />
         )}
       </ul>
+      <div
+        className={`w-full flex flex-col gap-2 md:hidden p-2 items-center justify-center border-solid border border-[${themeText.disabled}] box-border`}
+      >
+        <div className="flex justify-start items-center w-full min-h-10">
+          <TextBody
+            text={"ID"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <TextBody
+            text={order.id}
+            className={"text-12-regular "}
+            color={themeText.primary}
+            padding="p-0"
+          />
+        </div>
+        <div className="flex justify-start items-center w-full min-h-10 ">
+          <TextBody
+            text={"User"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <UserCard userName={order.name} />
+        </div>
+        <div className="flex justify-start items-center w-full min-h-10 ">
+          <TextBody
+            text={"Project"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <TextBody
+            text={order.project}
+            className={"text-12-regular min-w-20"}
+            color={themeText.primary}
+            padding="p-0"
+          />
+        </div>
+        <div className="flex justify-start items-center w-full min-h-10 ">
+          <TextBody
+            text={"Address"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <TextBody
+            text={order.address}
+            className={
+              "text-12-regular inline-block text-nowrap overflow-hidden text-ellipsis"
+            }
+            color={themeText.primary}
+            padding="p-0"
+          />
+        </div>
+        <div className="flex justify-start items-center w-full min-h-10 ">
+          <TextBody
+            text={"Time"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <DateCard date={order.time} />
+        </div>
+        <div className="flex justify-start items-center w-full min-h-10 ">
+          <TextBody
+            text={"Status"}
+            className={"text-12-regular min-w-20"}
+            padding="py-2 px-3"
+            color={themeText.secondary}
+          />
+          <StatusCard status={order.status} />
+        </div>
+      </div>
     </div>
   );
 };

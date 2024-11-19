@@ -1,12 +1,18 @@
 // ThemeContextProvider.tsx
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { ThemeProvider, CssBaseline, Theme } from "@mui/material";
+import {
+  ThemeProvider,
+  CssBaseline,
+  Theme,
+  useMediaQuery,
+} from "@mui/material";
 import { lightTheme, darkTheme } from "./theme";
 import { useTheme } from "@emotion/react";
 
 type ThemeContextType = {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  isSmallScreen: boolean;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -33,9 +39,10 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
+  const isSmallScreen = useMediaQuery("(max-width:1024px)");
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <ThemeContext.Provider value={{ isSmallScreen, darkMode, toggleDarkMode }}>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         {children}

@@ -22,9 +22,10 @@ import { PiChatsTeardropDuotone } from "react-icons/pi";
 
 type Props = {
   isLeftDrawerOpen: boolean;
+  setLeftDrawerStatus: () => void;
 };
 
-const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
+const LeftDrawer = ({ isLeftDrawerOpen, setLeftDrawerStatus }: Props) => {
   const [openMenu, setOpenMenu] = useState("");
   const { currentRoute } = useAppContext();
   const router = useRouter();
@@ -42,6 +43,7 @@ const LeftDrawer = ({ isLeftDrawerOpen }: Props) => {
       width={leftDrawerWidth}
       open={isLeftDrawerOpen}
       alinement={"left"}
+      onClose={setLeftDrawerStatus}
     >
       <div className="flex gap-2 justify-left items-center">
         <Icon iconName={"ByeWind"} size={24} />

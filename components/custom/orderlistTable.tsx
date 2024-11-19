@@ -67,9 +67,9 @@ const OrderListTable = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2 md:gap-0">
       <div
-        className={`flex border-solid border-b border-[${themeText.disabled}] box-border`}
+        className={`hidden md:flex border-solid border-b border-[${themeText.disabled}] box-border`}
       >
         <ul className="min-w-5">
           <CustomCheckbox
@@ -96,7 +96,7 @@ const OrderListTable = (props: Props) => {
         <ul className="min-w-12"></ul>
       </div>
       {data.map((item, index) => (
-        <ul key={item.id + index}>
+        <ul key={item.id + index} className="">
           <OrderListCard order={item} isSelectAll={isSelectAll} />
         </ul>
       ))}
